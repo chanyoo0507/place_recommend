@@ -23,10 +23,10 @@ if st.button("추천 보기"):
     
     if recommendations != []:
         for place in recommendations:
-            st.write(place["이름"])
-            st.write(place["지역"])
-            st.write(place["예산"])
-            st.write(place["한줄설명"])
+            st.write("이름 : "+place["이름"])
+            st.write("지역 : "+place["지역"])
+            st.write("예산 : "+place["예산"])
+            st.write("한줄설명 : "+place["한줄설명"])
             st.write("---")
     else:
         st.write("해당하는 결과가 없습니다")
