@@ -7,18 +7,19 @@ places = [
     {"이름": "춘천 시립도서관", "지역": "춘천", "실내여부": "실내", "예산": 0, "한줄설명": "학습과 독서에 적합한 공간"}
 ]
 
-def get_recommendations(data, region):
+def get_recommendations(data, region, indoor):
     result = []
     for place in data:
-        if place["지역"] == region:
+        if (place["지역"] == region or region == "전부") and (place["실내여부"] == indoor or indoor == "전부"):
             result.append(place)
     return result
 
 st.title("강원 청소년 생활 도우미")
-region = st.selectbox("지역을 선택하세요", ["강릉", "속초", "춘천","양양"])
+region = st.selectbox("지역을 선택하세요", ["전부","강릉", "속초", "춘천","양양"])
+indoor = st.selectbox("실내여부를 선택하세요", ["전부","실내","실외"])
 
 if st.button("추천 보기"):
-    recommendations = get_recommendations(places, region)
+    recommendations = get_recommendations(places, region, indoor)
     
     if recommendations != []:
         for place in recommendations:
