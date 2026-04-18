@@ -25,7 +25,7 @@ if st.button("추천 보기"):
         for place in recommendations:
             st.write("이름 : "+place["이름"])
             st.write("지역 : "+place["지역"])
-            st.write("예산 : "+place["예산"])
+            st.write("예산 : "+str(place["예산"]))
             st.write("한줄설명 : "+place["한줄설명"])
             st.write("---")
     else:
